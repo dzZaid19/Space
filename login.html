@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./form.css">
+  
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
 </head>
 <body>
     <div class="background">
@@ -18,15 +21,101 @@
         <h3>Login Here</h3>
 
         <label for="username">Username</label>
-        <input type="text" placeholder="Email" id="username">
+        <input type="text" placeholder="Email" id="email">
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password">
-        <button>Log In</button>
-        <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div>
+       
+        
+          
+        <p> Don't Have an Account</p>
+        <a href="signup.html"> Register Here</a>
     </form>
+   
+    <button id="logIn" >Log In  </button>
 </body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+  import { getDatabase,set,ref,update } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword ,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBzMTZPB2tzIP7bS7CB2hlG9UvCR3S0Ad8",
+    authDomain: "space-eb236.firebaseapp.com",
+    databaseURL: "https://space-eb236-default-rtdb.firebaseio.com",
+    projectId: "space-eb236",
+    storageBucket: "space-eb236.appspot.com",
+    messagingSenderId: "151524331615",
+    appId: "1:151524331615:web:2640fa9689f962e12a4bea",
+    measurementId: "G-1Q25NZ6RBF"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+ 
+
+logIn.addEventListener('click',(e)=>
+{
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    const dt = new Date();
+    update(ref(database,'users/'+user.uid),{
+    last_login:dt
+
+  })
+  alert('User Logged in!!');
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+  })
+
+});
+/*
+const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+logout.addEventListener('click',(e)=>
+{ 
+  signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+  const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+});
+});*/
+
+</script>
+
+
+
+
 </html>

@@ -94,8 +94,11 @@ input{
     color: #e5e5e5;
 }
 button{
-    margin-top: 50px;
-    width: 100%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 90%;
+    left: 50%;
+    width: 350px;
     background-color: #ffffff;
     color: #080710;
     padding: 15px 0;
