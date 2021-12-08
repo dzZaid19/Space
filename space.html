@@ -78,7 +78,9 @@ document.getElementById("send").addEventListener("click", function() {
         function complete() {
           document.getElementById(
             "uploading"
+
           ).innerHTML += `${files[i].name} uploaded <br />`;
+
         }
       );
     }
@@ -86,7 +88,6 @@ document.getElementById("send").addEventListener("click", function() {
     alert("No file chosen");
   }
 });
-
 
 
 

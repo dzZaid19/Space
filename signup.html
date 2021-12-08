@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="css/form.css">
    
     <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
@@ -21,16 +21,16 @@
         <h3>Sign up Here</h3>
 
         <label for="name">Name</label>
-        <input type="text" placeholder="First Name" id="fname">
-        <input type="text" placeholder="Last Name" id="lname">
+        <input type="text" placeholder="First Name" id="fname" required>
+        <input type="text" placeholder="Last Name" id="lname" >
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email" id="email">
+        <label for="username" >Username</label >
+        <input type="text" placeholder="Email" id="email" required>
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
-        <label for="password">Re-enter Your Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" required>
+        <label for="password">Re-enter Your Password</label >
+        <input type="password" placeholder="Password" id="re-password" required>
       
       
         <a href="login.html">  Already Have an Account? Log in Here</a>
@@ -65,6 +65,7 @@
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth();
+   
 
     signUp.addEventListener('click',(e)=>
 
@@ -73,6 +74,11 @@
     var lname = document.getElementById("lname").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
+    var repassword = document.getElementById("re-password").value;
+    if(password!=repassword){
+        alert('Password and re-enter password should be same');
+        return;
+      }
 
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -84,6 +90,7 @@
 
     });
     alert('user created');
+    location.replace("login.html");
     
   })
   .catch((error) => {

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - game vertical navbar</title>
+  <link rel="stylesheet" href="css/spacedocstyle.css">
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
+  <script type="module" src="js/logout.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="spacedoc.html">HOME</a>
+  <a href="#">Core Team</a>
+  <a href="hrdep.html" class="dropbtn">HR Dept 
+      <i class="fa fa-caret-down"></i>
+  </a>
+  <div class="dropdown-content">
+      <a href="#">Core Team</a>
+      <a href="#">Meeting Notes</a>
+      <a href="#">Client Docs</a>
+  </div>
+  <a class="dropbtn">SDE Hub 
+    <i class="fa fa-caret-down"></i>
+  </a>
+<div class="dropdown-content">
+    <a href="#">Core Team</a>
+    <a href="#">Meeting Notes</a>
+    <a href="#">Client Docs</a>
+</div>
+<a class="dropbtn">Research 
+  <i class="fa fa-caret-down"></i>
+</a>
+<div class="dropdown-content">
+  <a href="#">Core Team</a>
+  <a href="#">Meeting Notes</a>
+  <a href="#">Client Docs</a>
+</div>
+
+  <a href="#">Support</a>
+  <a href="hrcore.html">Your Channel</a>
+</div>
+
+
+<script>
+  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+  var dropdown = document.getElementsByClassName("dropbtn");
+  var i;
+  
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+    } else {
+    dropdownContent.style.display = "block";
+    }
+    });
+  }
+</script>
+
+<!-- Use any element to open the sidenav -->
+<a href="javascript:void(0)" class="openbtn" style="text-decoration: none; color:aliceblue; font-size: 40px;" onclick="openNav()">&#9776;</a>
+
+<div id="main" style="height:100vh;">
+  <h1 style="text-align: center; font-size: 60px;">WELCOME TO SPACE DOC </h1>
+  <h2 style="text-align: center;font-size: 35px;">#Recent Docs</h2>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?wave" alt="wave" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+           Doc_1
+            <small>CORE TEAM</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?beach" alt="beach" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?mountain" alt="mountain" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?field" alt="field" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc 2
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?water" alt="water" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc 3
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?river" alt="river" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc 4
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?kite" alt="kite" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc x1
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?underwater" alt="underwater" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc x2
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2>
+            Doc v4
+            <small>RESEARCH</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description">
+          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+ 
+</div>
+
+<!-- partial -->
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+  <script  src="js/spacedocscript.js"></script>
+  
+  
+</body>
+</html>
