@@ -303,8 +303,9 @@ Team
   text-align: center;
 } 
 .testimonial-section .carousel-caption img{
-  max-width:5rem;
-  border-radius: 50%;
+  max-width:20rem;
+  border-radius: 20px;
+  padding-right: 6em;
   padding:0.3125rem;
 }
 
