@@ -308,6 +308,10 @@ Team
   padding:0.3125rem;
 }
 
+.carousel-caption i{
+  color: #000;
+}
+
 .testimonial-section .carousel-item .carousel-caption p{
   font-size: 1.3125rem;
   line-height: 2.0625rem;
