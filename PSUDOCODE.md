@@ -25,7 +25,7 @@
 <img src="Resources/auth.png"  alt="FirebaseSetup Auth">
 <strong> The Api keys are personal and these data cannot be shared on internet so i have removed that part from the image <strong>
  <img src="Resources/api.png"  alt="Firebase AuthenticationSetting up Api">
- <p> Follow same guide line or you can read the entire documentation from firebase </p>
+ <p> Follow same guide line or you can read the entire documentation from firebase for storage purpose as well </p>
  <p> Make sure to link all firebase codes and script attact to your jaavascript to ensure proper running of code <br> 
-  Due to shortage of time i have written things in breif </p>
+  Due to shortage of time i have written things in Breif. </p>
 
