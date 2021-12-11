@@ -24,7 +24,7 @@
 <img src="Resources/MainPage.png"  alt="Main page">
 <p> This is a simple representation of gallery where in future your documents can be viewed . Due to shortage of time this section has been left and will be completed in future </p>
 <strong> We have left menu bar which was asked which sould be in  expandable hierarchy </strong>
-<img src=""Resources/expandable.png"  alt="Left Menu Bar">
+<img src="Resources/expandable.png"  alt="Left Menu Bar">
 <p>Now , Here is the main part of the entire project . </p>
 <b >Go , Either in "Core Teams" under the "Hr-Dept" Secttion or in "Your Channel" . <b>
 
