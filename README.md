@@ -1,7 +1,7 @@
 # SpaceDoc
 <strong>A place to share your documents </strong>
  
-<p>This is a complete guide to show how our website works. <a href="" >Here  I have also added the required code and details like how the specific code works. </a></p>
+<p>This is a complete guide to show how our website works. <a href="PSUDOCODE.md" >Here  I have also added the required code and details like how the specific code works. </a></p>
 <strong> NOTE: If you are a new user i.e. you have already signed up in past, then click on login Button </strong>
 
 <br> <b>GUIDE FOR OUR WEBSITE SPACE DOC </b> </br>
