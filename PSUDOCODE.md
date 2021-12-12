@@ -114,6 +114,7 @@
     </pre>
 
    <p> It will show an alert <strong> user created </strong> and with the help of <strong>  location.replace("login.html") </strong> it will re-direct it to login.html </p>
+  
    <pre>
     alert('user created');
     location.replace("login.html");
@@ -123,6 +124,7 @@
    </pre>
    
    <p> It will catch and show error msg if any is found </p>
+ 
    <pre>
   .catch((error) => {
     const errorCode = error.code;
