@@ -133,7 +133,7 @@
    
    <h3>Spacedoc.js <h3> 
     
-    <p> Basically we have design a left menu bar . With opening and closing feature </p>
+  <p> Basically we have design a left menu bar . With opening and closing feature </p>
     <p> Here is the code for opening the nav-bar . We have just called a function openNav() inside which we are changing the value of mySidenav property <br> 
     giving it a width of 230 px and a style margin of 250px </p>
     
@@ -144,7 +144,7 @@
  }
  </pre>
     
-    <p> Here is the code for closingthe nav-bar . We have just called a function closeNav() inside which we are changing the value of mySidenav property <br> 
+  <p> Here is the code for closingthe nav-bar . We have just called a function closeNav() inside which we are changing the value of mySidenav property <br> 
     giving it a width of 0 px and a style margin of  0 px  so that it is now not visible</p>
     
   <pre> 
