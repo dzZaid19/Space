@@ -60,7 +60,8 @@
   
   <p> In Login.js we have added an event listner to LogIn Button which has been given an id of logIn <br> 
    When an on click is triggger It search for element having id as email and password get its values and check weather there is any user of same email and password <br>
-   if the user is present then in alert box it shows that the <strong> user has been created </strong> and with the help of <pre> location.replace("spacedoc.html")  </pre>
+   if the user is present then in alert box it shows that the <strong> user has been created </strong> and with the help of
+    <pre> location.replace("spacedoc.html")  </pre>
   It goes to next page when the user has been succesfully authenticated . Else it will throw any error via these code line 
   
   <pre>.catch((error) => {
@@ -96,6 +97,7 @@
         return;
       }
 </pre>
+
    <p> After Checking for password . It will store data in firebase database </p>
    
   
@@ -110,6 +112,7 @@
 
     });
     </pre>
+
    <p> It will show an alert <strong> user created </strong> and with the help of <strong>  location.replace("login.html") </strong> it will re-direct it to login.html </p>
    <pre>
     alert('user created');
@@ -134,7 +137,8 @@
     <p> Here is the code for opening the nav-bar . We have just called a function openNav() inside which we are changing the value of mySidenav property <br> 
     giving it a width of 230 px and a style margin of 250px </p>
     
-    <pre> function openNav() {
+  <pre>
+     function openNav() {
    document.getElementById("mySidenav").style.width = "230px";
    document.getElementById("main").style.marginLeft = "250px";
  }
@@ -143,7 +147,7 @@
     <p> Here is the code for closingthe nav-bar . We have just called a function closeNav() inside which we are changing the value of mySidenav property <br> 
     giving it a width of 0 px and a style margin of  0 px  so that it is now not visible</p>
     
-    <pre> 
+  <pre> 
     function closeNav() {
    document.getElementById("mySidenav").style.width = "0";
    document.getElementById("main").style.marginLeft = "0";
