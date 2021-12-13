@@ -30,11 +30,15 @@ logIn.addEventListener('click',(e)=>
 {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  if((email=="spacedoc@gmail.com") && (password=="SpaceDoc@#!")){
-    
-    alert("Admin Pannel space cannot be accessed here");
+  if(email!="spacedoc@gmail.com"){
+    alert('Email should be same as given below');
     return;
-}
+  }
+if(password!="SpaceDoc@#!"){
+    alert('Password should be same as given below');
+    return;
+  }
+  
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
@@ -44,8 +48,8 @@ logIn.addEventListener('click',(e)=>
     last_login:dt
 
   })
-  alert('User Logged in!!');
-  location.replace("spacedoc.html");
+  alert('Admin Successfully Logged in!!');
+  location.replace("space.html");
 /*
   if (user !== null) {
     user.providerData.forEach((profile) => {

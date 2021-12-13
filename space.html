@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-<title>Firebase File Upload</title>
+  <meta charset="UTF-8">
+  <title>HR-DEP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="css/hrcore.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" >
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1, maximum-scale=1"
-/>
+
 </head>
 <body>
-<div>
-Upload Files<br />
-<input type="file" id="files" multiple /><br /><br />
-<button id="send">Upload</button>
-<p id="uploading"></p>
-<progress value="0" max="100" id="progress"></progress>
-</div>
+  
+<!-- partial:index.partial.html -->
+<header>
+  <a href="#" class="toggle-menu fontawesome-reorder"></a>
+  <h1 style="text-align: center;" >MANAGE YOUR DOCUMENTS </h1>
+  
+</header>
 
+<aside class="sidebar">
+  
+<button  onclick="window.location.href='admin.html';"  style="background-color: #16e0c5;border-radius: 8px;"> Log Out <i class="far fa-sign-out"></i></button>
+  <h3>Contents</h3>
+  <input type="text" placeholder="Search..">
+  <nav>
+    
+      <ul id="myList" ></ul>
+    
+  </nav>
+</aside>
+  
+<section class="main">
+  
+<div>
+  Upload Files<br />
+  <input type="file" id="files" multiple  /><br /><br />
+  <button id="send" style="background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  align-items: center;"
+  >Upload</button>
+  
+  <p id="uploading"></p>
+  <progress value="0" max="100" id="progress"></progress>
+  <img src="" alt="">
+  </div>
+  
+</section>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="js/hrcore.js"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
 
@@ -27,70 +61,106 @@ Upload Files<br />
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBzMTZPB2tzIP7bS7CB2hlG9UvCR3S0Ad8",
-  authDomain: "space-eb236.firebaseapp.com",
-  databaseURL: "https://space-eb236-default-rtdb.firebaseio.com",
-  projectId: "space-eb236",
-  storageBucket: "space-eb236.appspot.com",
-  messagingSenderId: "151524331615",
-  appId: "1:151524331615:web:2640fa9689f962e12a4bea",
-  measurementId: "G-1Q25NZ6RBF"
-};
+    apiKey: "AIzaSyBzMTZPB2tzIP7bS7CB2hlG9UvCR3S0Ad8",
+    authDomain: "space-eb236.firebaseapp.com",
+    databaseURL: "https://space-eb236-default-rtdb.firebaseio.com",
+    projectId: "space-eb236",
+    storageBucket: "space-eb236.appspot.com",
+    messagingSenderId: "151524331615",
+    appId: "1:151524331615:web:2640fa9689f962e12a4bea",
+    measurementId: "G-1Q25NZ6RBF"
+  };
+  
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  
+  $(document).ready(function () {
+          getFileUrl();
+      });
 
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-
-</script>
-
-<script>
-var files = [];
-document.getElementById("files").addEventListener("change", function(e) {
-  files = e.target.files;
-  for (let i = 0; i < files.length; i++) {
-    console.log(files[i]);
-  }
-});
-
-document.getElementById("send").addEventListener("click", function() {
-  //checks if files are selected
-  if (files.length != 0) {
-    //Loops through all the selected files
+  
+  var files = [];
+  document.getElementById("files").addEventListener("change", function(e) {
+    files = e.target.files;
     for (let i = 0; i < files.length; i++) {
-      //create a storage reference
-      var storage = firebase.storage().ref(files[i].name);
-
-      //upload file
-      var upload = storage.put(files[i]);
-
-      //update progress bar
-      upload.on(
-        "state_changed",
-        function progress(snapshot) {
-          var percentage =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          document.getElementById("progress").value = percentage;
-        },
-
-        function error() {
-          alert("error uploading file");
-        },
-
-        function complete() {
-          document.getElementById(
-            "uploading"
-
-          ).innerHTML += `${files[i].name} uploaded <br />`;
-
-        }
-      );
+      console.log(files[i]);
     }
-  } else {
-    alert("No file chosen");
-  }
-});
+  });
+  
+  document.getElementById("send").addEventListener("click", function() {
+    //checks if files are selected
+    if (files.length != 0) {
+      //Loops through all the selected files
+      for (let i = 0; i < files.length; i++) {
+        //create a storage reference
+        var storage = firebase.storage().ref('HR Dept/'+'Core Team/'+files[i].name);
+  
+        //upload file
+        var upload = storage.put(files[i]);
+  
+        //update progress bar
+        upload.on(
+          "state_changed",
+          function progress(snapshot) {
+            var percentage =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            document.getElementById("progress").value = percentage;
+          },
+  
+          function error() {
+            alert("error uploading file");
+          },
+  
+          function complete() {
+            document.getElementById(
+              "uploading"
+            ).innerHTML += `${files[i].name} upoaded <br />`;
+          }
+        );
+      }
+    } else {
+      alert("No file chosen");
+    }
+  });
+  
+  function getFileUrl() {
+    var storageRef = firebase.storage().ref("HR Dept/Core Team");
+    let list = document.getElementById("myList");
+    
+  
+  // Now we get the references of these images
+  storageRef.listAll().then(function(result) {
+    result.items.forEach(function(Ref) {
+      // And finally display them
+      let li = document.createElement("li");
+      let a = document.createElement("a");
+      let cross = document.createElement("button");
+      cross.textContent="DELETE";
+      cross.style.marginLeft="10px";
+      cross.id="cross";
+      Ref.getDownloadURL()
+        .then((url) => {
+          a.href=url;
+        });
 
+        cross.onclick= function(){
+            var fileLocation = "HR Dept/Core Team/"+Ref.name;
 
-
-</script>
+            firebase.storage().ref().child(fileLocation).delete();
+          }
+      a.innerHTML = Ref.name;
+      a.id="linkk";
+      li.appendChild(a);
+      li.appendChild(cross);
+      list.appendChild(li);
+     
+     
+    
+    });
+  }).catch(function(error) {
+    // Handle any errors
+  });
+  
+  }</script>
 </body>
 </html>
