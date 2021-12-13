@@ -116,6 +116,7 @@ document.getElementById("send").addEventListener("click", function() {
           document.getElementById(
             "uploading"
           ).innerHTML += `${files[i].name} upoaded <br />`;
+          location.reload();
         }
       );
     }

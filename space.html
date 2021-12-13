@@ -147,6 +147,7 @@ const firebaseConfig = {
             var fileLocation = "HR Dept/Core Team/"+Ref.name;
 
             firebase.storage().ref().child(fileLocation).delete();
+            location.reload();
           }
       a.innerHTML = Ref.name;
       a.id="linkk";
